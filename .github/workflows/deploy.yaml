@@ -6,20 +6,24 @@ on:
 
 jobs:
   deploy-to-k3s:
-    runs-on: self-hosted # Utiliza o seu runner local na VM lx01
+    runs-on: self-hosted # Roda na VM lx01
     steps:
       - name: Checkout do Repositório
         uses: actions/checkout@v4
 
-      - name: Validar Conexão com o Cluster K3s
+      - name: Sincronizar e Aplicar Manifestos via SSH no K3s
         run: |
-          echo "Verificando nós do cluster Kubernetes..."
-          export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-          kubectl get nodes
-
-      - name: Aplicar Manifestos no Cluster (CD)
-        run: |
-          echo "Aplicando alterações de infraestrutura..."
-          export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-          kubectl apply -R -f apps/
-          kubectl get pods -o wide
+          echo "Enviando manifestos para o control-plane (k3s-node01)..."
+          
+          # Garante que o diretório de destino existe no nó control-plane
+          ssh root@192.168.0.10 "mkdir -p /opt/k8s-manifests"
+          
+          # Copia a pasta de apps para o k3s-node01 via SCP seguro
+          scp -r apps/ root@192.168.0.10:/opt/k8s-manifests/
+          
+          echo "Aplicando alterações declarativas no cluster..."
+          # Executa o kubectl apply remotamente usando o KUBECONFIG correto do K3s
+          ssh root@192.168.0.10 "export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && kubectl apply -R -f /opt/k8s-manifests/apps/"
+          
+          echo "Validando pods em execução no cluster..."
+          ssh root@192.168.0.10 "export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && kubectl get pods -o wide"
