@@ -15,19 +15,20 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
-        image: nginx:alpine
-        ports:
-        - containerPort: 80
+        - name: nginx
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: nginx-service
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: nginx
   ports:
-  - port: 80
-    targetPort: 80
+    - port: 80
+  targetPort: 80
+  nodePort: 30080
