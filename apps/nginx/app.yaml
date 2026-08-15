@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: nginx
@@ -19,6 +19,7 @@ spec:
           image: nginx:alpine
           ports:
             - containerPort: 80
+
 ---
 apiVersion: v1
 kind: Service
@@ -30,5 +31,5 @@ spec:
     app: nginx
   ports:
     - port: 80
-  targetPort: 80
-  nodePort: 30080
+      targetPort: 80
+      nodePort: 30080
