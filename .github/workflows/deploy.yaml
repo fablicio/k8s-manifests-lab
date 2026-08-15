@@ -1,0 +1,25 @@
+name: GitOps K3s Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy-to-k3s:
+    runs-on: self-hosted # Utiliza o seu runner local na VM lx01
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Validar Conexão com o Cluster K3s
+        run: |
+          echo "Verificando nós do cluster Kubernetes..."
+          export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+          kubectl get nodes
+
+      - name: Aplicar Manifestos no Cluster (CD)
+        run: |
+          echo "Aplicando alterações de infraestrutura..."
+          export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+          kubectl apply -R -f apps/
+          kubectl get pods -o wide
