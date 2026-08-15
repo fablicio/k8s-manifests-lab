@@ -15,15 +15,15 @@ jobs:
         run: |
           echo "Enviando manifestos para o control-plane (k3s-node01)..."
           
-          # Garante que o diretório de destino existe no nó control-plane
-          ssh root@192.168.0.10 "mkdir -p /opt/k8s-manifests"
+          # Ignora a checagem interativa de host key do SSH e cria o diretório
+          ssh -o StrictHostKeyChecking=no root@192.168.0.10 "mkdir -p /opt/k8s-manifests"
           
-          # Copia a pasta de apps para o k3s-node01 via SCP seguro
-          scp -r apps/ root@192.168.0.10:/opt/k8s-manifests/
+          # Copia a pasta de apps para o k3s-node01 via SCP seguro ignorando o prompt
+          scp -o StrictHostKeyChecking=no -r apps/ root@192.168.0.10:/opt/k8s-manifests/
           
           echo "Aplicando alterações declarativas no cluster..."
           # Executa o kubectl apply remotamente usando o KUBECONFIG correto do K3s
-          ssh root@192.168.0.10 "export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && kubectl apply -R -f /opt/k8s-manifests/apps/"
+          ssh -o StrictHostKeyChecking=no root@192.168.0.10 "export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && kubectl apply -R -f /opt/k8s-manifests/apps/"
           
           echo "Validando pods em execução no cluster..."
-          ssh root@192.168.0.10 "export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && kubectl get pods -o wide"
+          ssh -o StrictHostKeyChecking=no root@192.168.0.10 "export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && kubectl get pods -o wide"
