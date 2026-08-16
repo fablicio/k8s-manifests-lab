@@ -76,3 +76,5 @@ Tratamento de Dados Binários no Kubernetes:
 Desafio: Tentativa inicial de armazenar imagens diretamente em ConfigMaps via codificação binária (binaryData), o que gerou erros de validação de codificação de bytes (illegal base64 data).
 
 Solução: Migração para uma abordagem mais limpa e performática, referenciando os ativos visuais diretamente através de URLs diretas (raw) versionadas no próprio repositório Git.
+
+Pagina de Teste: http://app.bliciolab.com.br:30080/
