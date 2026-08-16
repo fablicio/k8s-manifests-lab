@@ -2,6 +2,8 @@
 
 Bem-vindo ao repositório oficial da infraestrutura e dos manifestos do **BlicioLab**. Este projeto tem como objetivo central a criação, orquestração e automação de uma arquitetura de nuvem híbrida e moderna em um ambiente físico (*Home Lab*), aplicando na prática os principais conceitos de Engenharia DevOps, Containers e Entrega Contínua (CI/CD).
 
+🔗 **Página de Teste Online:** [http://app.bliciolab.com.br:30080/](http://app.bliciolab.com.br:30080/)
+
 ---
 
 ## 🛠️ Tecnologias e Linguagens Utilizadas
@@ -79,4 +81,3 @@ Solução: Migração para uma abordagem mais limpa e performática, referencian
 
 Pagina de Teste: http://app.bliciolab.com.br:30080/
 
-<img width="581" height="410" alt="image" src="https://github.com/user-attachments/assets/23fb47f0-34f8-47d4-a27c-806846860547" />
