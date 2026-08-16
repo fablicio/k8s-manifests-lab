@@ -33,14 +33,16 @@ data:
                 border-top: 4px solid #38bdf8;
             }
             .logo {
-                width: 180px;      /* Aumentado para dar mais destaque */
-                height: 180px;     /* Aumentado proporcionalmente */
-                border-radius: 12px; /* Deixado com cantos levemente arredondados para exibir melhor a imagem retangular/quadrada */
-                object-fit: contain; /* Garante que a logo inteira apareça sem cortes */
-                margin-bottom: 20px;
-                background-color: #ffffff; /* Fundo branco caso a imagem tenha transparência ou margem */
-                padding: 5px;
-                border: 3px solid #38bdf8;
+                width: 220px;          /* Aumentado para dar mais destaque visual */
+                height: auto;          /* Mantém a proporção exata da imagem sem distorcer */
+                max-height: 220px;     /* Limita a altura máxima */
+                border-radius: 12px;   /* Cantos levemente arredondados */
+                object-fit: contain;   /* Garante que nenhum pedaço da logo seja cortado */
+                margin-bottom: 25px;   /* Espaçamento elegante até o título */
+                background-color: #ffffff; /* Fundo branco de destaque */
+                padding: 10px;         /* Moldura interna mais espaçosa */
+                border: 3px solid #38bdf8; /* Borda azul neon combinando com o tema */
+                box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3); /* Sutil efeito de brilho */
             }
             h1 {
                 color: #38bdf8;
