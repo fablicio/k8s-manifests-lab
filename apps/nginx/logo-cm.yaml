@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: nginx-logo-config
-binaryData:
-  logo.jpg: |
-    # (Cole aqui o conteúdo binário ou use o arquivo de manifesto completo)
