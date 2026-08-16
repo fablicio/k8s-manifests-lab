@@ -78,3 +78,5 @@ Desafio: Tentativa inicial de armazenar imagens diretamente em ConfigMaps via co
 Solução: Migração para uma abordagem mais limpa e performática, referenciando os ativos visuais diretamente através de URLs diretas (raw) versionadas no próprio repositório Git.
 
 Pagina de Teste: http://app.bliciolab.com.br:30080/
+
+<img width="581" height="410" alt="image" src="https://github.com/user-attachments/assets/23fb47f0-34f8-47d4-a27c-806846860547" />
