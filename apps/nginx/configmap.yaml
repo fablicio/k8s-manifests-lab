@@ -10,56 +10,58 @@ data:
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>BlicioLab - Home Lab DevOps</title>
-            <style>
-                body {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    background-color: #0f172a;
-                    color: #f8fafc;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    height: 100vh;
-                    margin: 0;
-                }
-                .card {
-                    background-color: #1e293b;
-                    padding: 40px;
-                    border-radius: 16px;
-                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-                    text-align: center;
-                    max-width: 450px;
-                    width: 100%;
-                    border-top: 4px solid #38bdf8;
-                }
-                .logo {
-                    width: 120px;
-                    height: 120px;
-                    border-radius: 50%;
-                    object-fit: cover;
-                    margin-bottom: 20px;
-                    border: 3px solid #38bdf8;
-                }
-                h1 {
-                    color: #38bdf8;
-                    margin: 10px 0;
-                    font-size: 24px;
-                }
-                p {
-                    color: #94a3b8;
-                    font-size: 15px;
-                    margin-bottom: 20px;
-                }
-                .badge {
-                    display: inline-block;
-                    background-color: #065f46;
-                    color: #34d399;
-                    padding: 6px 14px;
-                    border-radius: 20px;
-                    font-size: 13px;
-                    font-weight: bold;
-                }
-            </style>
+          <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #0f172a;
+                color: #f8fafc;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+            }
+            .card {
+                background-color: #1e293b;
+                padding: 40px;
+                border-radius: 16px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+                text-align: center;
+                max-width: 480px;
+                width: 100%;
+                border-top: 4px solid #38bdf8;
+            }
+            .logo {
+                width: 180px;      /* Aumentado para dar mais destaque */
+                height: 180px;     /* Aumentado proporcionalmente */
+                border-radius: 12px; /* Deixado com cantos levemente arredondados para exibir melhor a imagem retangular/quadrada */
+                object-fit: contain; /* Garante que a logo inteira apareça sem cortes */
+                margin-bottom: 20px;
+                background-color: #ffffff; /* Fundo branco caso a imagem tenha transparência ou margem */
+                padding: 5px;
+                border: 3px solid #38bdf8;
+            }
+            h1 {
+                color: #38bdf8;
+                margin: 10px 0;
+                font-size: 26px;
+            }
+            p {
+                color: #94a3b8;
+                font-size: 15px;
+                margin-bottom: 20px;
+            }
+            .badge {
+                display: inline-block;
+                background-color: #065f46;
+                color: #34d399;
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 13px;
+                font-weight: bold;
+            }
+        </style>
         </head>
         <body>
             <div class="card">
