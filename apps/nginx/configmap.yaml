@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: nginx-index-config
+  name: nginx-index-config
 data:
-    index.html: |
-        <!DOCTYPE html>
-        <html lang="pt-BR">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>BlicioLab - Home Lab DevOps</title>
-          <style>
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BlicioLab - Home Lab DevOps</title>
+        <style>
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 background-color: #0f172a;
@@ -28,21 +28,21 @@ data:
                 border-radius: 16px;
                 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
                 text-align: center;
-                max-width: 480px;
+                max-width: 500px;
                 width: 100%;
                 border-top: 4px solid #38bdf8;
             }
             .logo {
-                width: 220px;          /* Aumentado para dar mais destaque visual */
-                height: auto;          /* Mantém a proporção exata da imagem sem distorcer */
-                max-height: 220px;     /* Limita a altura máxima */
-                border-radius: 12px;   /* Cantos levemente arredondados */
-                object-fit: contain;   /* Garante que nenhum pedaço da logo seja cortado */
-                margin-bottom: 25px;   /* Espaçamento elegante até o título */
-                background-color: #ffffff; /* Fundo branco de destaque */
-                padding: 10px;         /* Moldura interna mais espaçosa */
-                border: 3px solid #38bdf8; /* Borda azul neon combinando com o tema */
-                box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3); /* Sutil efeito de brilho */
+                width: 200px;
+                height: auto;
+                max-height: 200px;
+                border-radius: 12px;
+                object-fit: contain;
+                margin-bottom: 20px;
+                background-color: #ffffff;
+                padding: 10px;
+                border: 3px solid #38bdf8;
+                box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
             }
             h1 {
                 color: #38bdf8;
@@ -52,9 +52,16 @@ data:
             p {
                 color: #94a3b8;
                 font-size: 15px;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
             }
-            .badge {
+            .badges-container {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin-top: 20px;
+                align-items: center;
+            }
+            .badge-online {
                 display: inline-block;
                 background-color: #065f46;
                 color: #34d399;
@@ -63,8 +70,27 @@ data:
                 font-size: 13px;
                 font-weight: bold;
             }
+            .badge-ci {
+                display: inline-block;
+                background-color: #1e1b4b;
+                color: #818cf8;
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 13px;
+                font-weight: bold;
+                border: 1px solid #4f46e5;
+            }
         </style>
-        </head>
-        <body>
-            <div class="card">
-                <img src="https://raw.githubusercontent.com/fablicio/k8s-manifests-lab/main/apps/nginx/assets/logo.jpg" alt="BlicioLab Logo" class="logo">
+    </head>
+    <body>
+        <div class="card">
+            <img src="https://raw.githubusercontent.com/fablicio/k8s-manifests-lab/main/apps/nginx/assets/logo.jpg" alt="BlicioLab Logo" class="logo">
+            <h1>BlicioLab Home Lab</h1>
+            <p>Infraestrutura Declarativa, K3s & GitOps</p>
+            <div class="badges-container">
+                <div class="badge-online">Status: Online & Operacional 🚀</div>
+                <div class="badge-ci">Powered by GitHub Actions ⚡</div>
+            </div>
+        </div>
+    </body>
+    </html>
