@@ -32,5 +32,5 @@ jobs:
           
           echo "====================================================="
           echo "TUDO PRONTO! Acesse publicamente pelo seu domínio:"
-          echo "http://192.168.0.10:30080"
+          echo "http://app.bliciolab.com.br:30080/"
           echo "====================================================="
