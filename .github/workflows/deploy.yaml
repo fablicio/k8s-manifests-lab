@@ -3,6 +3,7 @@ name: GitOps K3s Deploy
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch: # Adicione esta linha com a mesma indentação do 'push'
 
 jobs:
   deploy-to-k3s:
